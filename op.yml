@@ -37,25 +37,17 @@ inputs:
       constraints: { enum: [user, sp]}
       description: type of login; 'user' (default) or 'sp' for service principal
       default: user
-  template:
-    file:
-      default: /template.json
 run:
-  serial:
-    - container:
-        image: { ref: 'opspecpkgs/azure.datafactory.create:1.0.0' }
-        cmd: [ /cmd.sh ]
-        files: { /cmd.sh, /parametersTemplate.json, /parameters.json: parameters }
-        envVars: { name, location }
-    - op:
-        pkg: { ref: github.com/opspec-pkgs/azure.group.deployment.create#1.0.0 }
-        inputs: 
-          subscriptionId:
-          loginId:
-          loginSecret:
-          resourceGroup:
-          name:
-          parameters:
-          template:
-          loginTenantId:
-          loginType:
+  container:
+    image: { ref: 'opspecpkgs/azure.datafactory.create:1.0.0' }
+    cmd: [node, /index.js]
+    files: { /index.js }
+    envVars:
+      subscriptionId:
+      loginId:
+      loginSecret:
+      loginTenantId:
+      resourceGroup:
+      name:
+      location:
+      loginType:

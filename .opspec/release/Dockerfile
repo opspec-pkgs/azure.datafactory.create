@@ -1,3 +1,3 @@
-FROM alpine:3.6
+FROM node:8.1.0-alpine
 
-RUN apk -U add gettext
+RUN npm install ms-rest-azure
