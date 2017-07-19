@@ -20,20 +20,19 @@ opctl run github.com/opspec-pkgs/azure.datafactory.create#VERSION
 ## compose
 
 ```yaml
-run:
-  op:
-    pkg: { ref: github.com/opspec-pkgs/azure.datafactory.create#VERSION }
-    inputs: 
-      subscriptionId:
-      loginId:
-      loginSecret:
-      name:
-      resourceGroup:
-      # begin optional args
-      location:
-      loginTenantId:
-      loginType:
-      # end optional args
+op:
+  pkg: { ref: github.com/opspec-pkgs/azure.datafactory.create#VERSION }
+  inputs: 
+    subscriptionId:
+    loginId:
+    loginSecret:
+    name:
+    resourceGroup:
+    # begin optional args
+    location:
+    loginTenantId:
+    loginType:
+    # end optional args
 ```
 
 # Support
